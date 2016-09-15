@@ -1,51 +1,63 @@
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+}
+.shadow {
+    box-shadow: 0 30px 38px rgba(0, 0, 0, 0.9);
+}
 html {
     min-height: 100%;
 }
-
 body {
-    background: url(../images/triangular.png);
-
+    background-color:#daad86;
 }
-
 .navbar {
     margin: 0;
 }
+ .navbar.transparent.navbar-inverse .navbar-inner {
+   background: rgba(0,0,0,0.4);
+}
 
+.home {
+    position: relative;
+    padding-top: 200px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
 #top {
     min-height: 100vh;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Austin.jpg);
+    background-repeat: no-repeat;
+    outline-style: solid;
+    outline-color: #515151;
+    background-size: 100%;
 }
-
 #page1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    padding:75px;
 }
-
+.panel-heading {
+    background-color: #515151;
+}
+.times {
+    min-height: 40vh;
+}
 #page2 {
     min-height: 100vh;
 }
-
 #page3 {
     min-height: 100vh;
 }
-
 #page4 {
     min-height: 100vh;
 }
 
-.imgDiv {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-    /*overflow: visible;*/
 }
-
-.img-fluid {
-    min-height: 60vh;
-    max-height: 75vh;
-    max-width: 95vh;
-    box-shadow: 0 30px 38px rgba(0, 0, 0, 0.9);
-}
-
 .buttonDiv {
     display: flex;
     justify-content: center;
@@ -53,8 +65,7 @@ body {
     padding-right: 30%;
 }
 
-.btn-default,
-.btn-primary {
+.btn-danger {
     -webkit-box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);
     -moz-box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);

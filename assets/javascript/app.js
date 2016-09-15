@@ -11,31 +11,31 @@ var queryURL = "https://api.flickr.com/services/rest/?&method=flickr.photos.sear
         $("#sidebar-wrapper").toggleClass("active");
     });
 
-function jsonFlickrApi(data) {
-    console.log(data.photos.photo.length);
+// function jsonFlickrApi(data) {
+//     console.log(data.photos.photo.length);
 
-    for (var i = 0; i < data.photos.photo.length; i++) {
-        var pic = data.photos.photo[i].url_l;
-        if (pic !== undefined) {
+//     for (var i = 0; i < data.photos.photo.length; i++) {
+//         var pic = data.photos.photo[i].url_l;
+//         if (pic !== undefined) {
 
-            pics.push(pic);
-        }
+//             pics.push(pic);
+//         }
 
-    }
+//     }
 
-    var randomImg = pics[Math.floor(Math.random() * pics.length)];
-    var img = $('<img class="img-fluid" src="' + randomImg + '" alt="Responsive Image">'); //Equivalent: $(document.createElement('img'))
-    $(".imgDiv").append(img);
-    button = $("<a href='#about' class='btn btn-primary btn-lg btn-block'>Git Started</a>");
-    $(".buttonDiv").html(button);
+//     var randomImg = pics[Math.floor(Math.random() * pics.length)];
+//     var img = $('<img class="img-fluid" src="' + randomImg + '" alt="Responsive Image">'); //Equivalent: $(document.createElement('img'))
+//     $(".imgDiv").append(img);
+//     button = $("<a href='#about' class='btn btn-primary btn-lg btn-block'>Git Started</a>");
+//     $(".buttonDiv").html(button);
 
-}
+// }
 
-$.ajax({
-    url: queryURL,
-    method: 'GET',
-    dataType: "jsonp"
-});
+// $.ajax({
+//     url: queryURL,
+//     method: 'GET',
+//     dataType: "jsonp"
+// });
 
 
 
