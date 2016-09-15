@@ -1,71 +1,66 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<title>Reverse Geocoding</title> 
+<!DOCTYPE html>
+<html class="full" lang="en">
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
-<script type="text/javascript"> 
-  var geocoder;
+<head>
+    <title>Git Started</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <script async type="text/javascript" src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <script async type="text/javascript" src="assets/javascript/app.js"></script>
+</head>
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
-} 
-//Get the latitude and the longitude;
-function successFunction(position) {
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
-    codeLatLng(lat, lng)
-}
+<body data-spy="scroll" data-target=".navbar" >
+    <nav class="navbar navbar-inverse navbar-fixed-top ">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page1">Git Started</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#top" onclick="$('#menu-close').click();">Home</a>
+                    </li>
+                    <li>
+                        <a href="#page1" onclick="$('#menu-close').click();">Scheduler</a>
+                    </li>
+                    <li>
+                        <a href="#page2" onclick="$('#menu-close').click();">Interests</a>
+                    </li>
+                    <li>
+                        <a href="#page3" onclick="$('#menu-close').click();">Itenerary</a>
+                    </li>
+                    <li>
+                        <a href="#page4" onclick="$('#menu-close').click();">Map</a>
+                    </li>
+                    <li>
+                        <a href="#page4" onclick="$('#menu-close').click();">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-lg-12" id="top">
+        <div class="imgDiv"> </div>
+        <br>
+        <br>
+        <div class="buttonDiv"> </div>
+    </div>
+    <div class="col-lg-12" id="page1">
+ 
+    </div>
+</body>
 
-function errorFunction(){
-    alert("Geocoder failed");
-}
-
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-
-
-
-  }
-
-  function codeLatLng(lat, lng) {
-
-    var latlng = new google.maps.LatLng(lat, lng);
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-      console.log(results)
-        if (results[1]) {
-         //formatted address
-         alert(results[0].formatted_address)
-        //find country name
-             for (var i=0; i<results[0].address_components.length; i++) {
-            for (var b=0;b<results[0].address_components[i].types.length;b++) {
-
-            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-                    //this is the object you are looking for
-                    city= results[0].address_components[i];
-                    break;
-                }
-            }
-        }
-        //city data
-        alert(city.short_name + " " + city.long_name)
-
-
-        } else {
-          alert("No results found");
-        }
-      } else {
-        alert("Geocoder failed due to: " + status);
-      }
-    });
-  }
-</script> 
-</head> 
-<body onload="initialize()"> 
-
-</body> 
-</html> 
+</html>
