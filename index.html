@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/map.css">
     <!--link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -13,12 +14,12 @@
     <script async type="text/javascript" src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script async type="text/javascript" src="assets/javascript/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmLuUUpQEbI2fj7r2fktCKh0eqUrmn1bg"></script>
+    <script language="javascript" type="text/javascript" src="assets/javascript/map.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/javascript/search.js"></script>
 </head>
-
-navbar transparent navbar-inverse navbar-fixed-top
-
-
-
 
 <body data-spy="scroll" data-target=".navbar">
     <div class="navbar transparent navbar-inverse navbar-fixed-top">
@@ -43,7 +44,7 @@ navbar transparent navbar-inverse navbar-fixed-top
                         <a href="#page1" onclick="$('#menu-close').click();">Scheduler</a>
                     </li>
                     <li>
-                        <a href="#page2" onclick="$('#menu-close').click();">Interests</a>
+                        <a href="#map" onclick="$('#menu-close').click();">Map</a>
                     </li>
                     <li>
                         <a href="#page3" onclick="$('#menu-close').click();">Itenerary</a>
@@ -56,8 +57,8 @@ navbar transparent navbar-inverse navbar-fixed-top
                     </li>
                 </ul>
             </div>
-    </nav>
-        </div>
+        </nav>
+    </div>
     <div class="col-md-12" id="top">
         <div class="home overlay">
             <div class="row">
@@ -131,6 +132,26 @@ navbar transparent navbar-inverse navbar-fixed-top
             </div>
         </div>
     </div>
+    <div id=" map control">
+        <h2>Find Local Farmers Markets</h2>
+        <p>We'll help you locate your closest farmers markets. Simply choose an option below to begin...</p>
+        <form method="get" id="chooseZip">
+            <button type="submit" class="learnButton">Use current location</button>
+            <button type="button" id="searchZip" class="learnButton">Search by Zip Code</button>
+            <div class="clear"></div>
+            <div class="zipSearch">
+                <input id="textZip" type="text" name="zip" placeholder="enter your zip code" autofocus>
+                <button type="submit" class="learnButton">Search</button>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <p>If you've found SeedTip helpful, please help spread the word!</p>
+        <div class="clear"></div>
+        <div id="results"></div>
+        <p>A project by <a href="http://www.pauldessert.com">Paul Dessert</a>.</p>
+    </div>
+    <!-- an empty div for the map -->
+    <div id="map-canvas"></div>
 </body>
 
 </html>
