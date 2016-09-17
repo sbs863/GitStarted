@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+<head>
+    <title>Git Started</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/map.css">
+    <!--link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <script async type="text/javascript" src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <script async type="text/javascript" src="assets/javascript/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmLuUUpQEbI2fj7r2fktCKh0eqUrmn1bg"></script>
+    <script language="javascript" type="text/javascript" src="assets/javascript/map.js"></script>
+    <script language="javascript" type="text/javascript" src="assets/javascript/search.js"></script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+    <div class="navbar transparent navbar-inverse navbar-fixed-top">
+        <nav class="navbar-inner container-fluid ">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class=" navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page1">Git Started</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#top" onclick="$('#menu-close').click();">Home</a>
+                    </li>
+                    <li>
+                        <a href="#page1" onclick="$('#menu-close').click();">Scheduler</a>
+                    </li>
+                    <li>
+                        <a href="#map" onclick="$('#menu-close').click();">Map</a>
+                    </li>
+                    <li>
+                        <a href="#page3" onclick="$('#menu-close').click();">Itenerary</a>
+                    </li>
+                    <li>
+                        <a href="#page4" onclick="$('#menu-close').click();">Map</a>
+                    </li>
+                    <li>
+                        <a href="#page4" onclick="$('#menu-close').click();">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-md-12" id="top">
+        <div class="home overlay">
+            <div class="row">
+                <div class=" container-fluid col-md-5">
+                    <h1 class="title">Write the best title for your page.</h1>
+                    <h4>Every landing page needs a small description after the big bold title, that's why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
+                    <br>
+                    <a href="#page1" class="btn btn-danger btn-raised btn-lg">
+                         Git Started
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="buttonDiv"> </div>
+    </div>
+    <div class="col-md-12" id="page1">
+        <div class="col-md-12">
+            <div class="col-md-12 ">
+                <div class="row shadow ">
+                    <div class="col-md-4 ">
+                        <div class="col-md-12 ">
+                            <div class="  panel panel-primary ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title center">Panel title</h3>
+                                </div>
+                                <div class="panel-body times center">
+                                    Panel content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div class="  panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title center">Panel title</h3>
+                                </div>
+                                <div class="panel-body times center">
+                                    Panel content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="col-md-12 ">
+                            <div class="  panel panel-primary ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title center">Panel title</h3>
+                                </div>
+                                <div class="panel-body times center">
+                                    Panel content
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="  panel panel-primary ">
+                            <div class="panel-heading">
+                                <h3 class="panel-title center">Panel title</h3>
+                            </div>
+                            <div class="panel-body center">
+                                Panel content
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id=" map control">
+        <h2>Find Local Farmers Markets</h2>
+        <p>We'll help you locate your closest farmers markets. Simply choose an option below to begin...</p>
+        <form method="get" id="chooseZip">
+            <button type="submit" class="learnButton">Use current location</button>
+            <button type="button" id="searchZip" class="learnButton">Search by Zip Code</button>
+            <div class="clear"></div>
+            <div class="zipSearch">
+                <input id="textZip" type="text" name="zip" placeholder="enter your zip code" autofocus>
+                <button type="submit" class="learnButton">Search</button>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <p>If you've found SeedTip helpful, please help spread the word!</p>
+        <div class="clear"></div>
+        <div id="results"></div>
+        <p>A project by <a href="http://www.pauldessert.com">Paul Dessert</a>.</p>
+    </div>
+    <!-- an empty div for the map -->
+    <div id="map-canvas"></div>
+</body>
+
+</html>
