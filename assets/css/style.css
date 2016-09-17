@@ -12,7 +12,7 @@ html {
     min-height: 100%;
 }
 body {
-    background-color:#daad86;
+    background-color:#f6f1ed;
 }
 .navbar {
     margin: 0;
@@ -29,7 +29,7 @@ body {
 }
 #top {
     min-height: 100vh;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Austin.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Austin.jpg);
     background-repeat: no-repeat;
     outline-style: solid;
     outline-color: #515151;
@@ -57,7 +57,6 @@ body {
     min-height: 100vh;
 }
 
-}
 .buttonDiv {
     display: flex;
     justify-content: center;
