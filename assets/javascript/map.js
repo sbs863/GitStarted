@@ -72,9 +72,9 @@ $(function() {
 		var accessURL;
 		
 		if(userZip){
-			accessURL = "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + userZip;
+			accessURL = "https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + userZip;
 		} else {
-			accessURL = "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/locSearch?lat=" + userCords.latitude + "&lng=" + userCords.longitude;
+			accessURL = "https://search.ams.usda.gov/farmersmarkets/v1/data.svc/locSearch?lat=" + userCords.latitude + "&lng=" + userCords.longitude;
 		}
 			
 
@@ -100,7 +100,7 @@ $(function() {
 							type: "GET",
 							contentType: "application/json; charset=utf-8",
 							// submit a get request to the restful service mktDetail.
-							url: "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + v,
+							url: "https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + v,
 							dataType: 'jsonp',
 							success: function (data) {
 
