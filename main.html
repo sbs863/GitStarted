@@ -6,16 +6,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/map.css">
     <!--link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script type="text/javascript" src="assets/javascript/jquery-3.1.0.min.js"></script>
     <script async type="text/javascript" src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <!-- <script language="javascript" type="text/javascript" src="assets/javascript/map.js"></script> -->
     <script async type="text/javascript" src="assets/javascript/app.js"></script>
-   
- 
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
@@ -71,22 +67,23 @@
             <div class="col-md-12 col-sm-12 col-xs-12 ">
                 <div class="row">
                     <div class="col-md-4 col-sm-4 col-xs-4  ">
-                        <div class="col-md-12 col-sm-12 col-xs-12 morning ">
-                            <div class="  panel panel-default ">
+                        <div class="col-md-12 col-sm-12 col-xs-12  ">
+                            <div class="  panel panel-default morning shadow round">
                                 <a href="#page2 " class="panel-body times center"></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 afternoon">
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="  panel panel-default">
+                            <div class="  panel panel-default afternoon shadow round">
                                 <a href="#page2" class="panel-body times center"></a>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 night">
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <div class="  panel panel-default ">
+                    <div class="col-md-4 col-sm-4 col-xs-4 ">
+                        <div class="col-md-12 col-sm-12 col-xs-12  ">
+                            <div class="  panel panel-default night shadow round ">
                                 <a href="#page2" class="panel-body times center"></a>
                             </div>
                         </div>
@@ -103,18 +100,20 @@
         </div>
     </div>
     <div class="row" id="page2">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <button type="button" id="locate" class="btn btn-success">where am I?</button>
-            <input type="submit" id="submit">
-    <div class="col-md-5 col-sm-5 col-xs-5 right"> </div>
-            <div id="map2"></div>
-            <div id="map"></div>
+        <div class="col-md-12 col-sm-12 col-xs-12 content">
+            <div class=" col-md-12 col-sm-12 col-xs-12">
+                <button type="button" id="locate" class="btn btn-success">where am I?</button>
+                <input type="submit" id="submit">
+            </div>
+            <div class=" col-md-7 col-sm-7 col-xs-7 shadow">
+            <div  class="shadow" id="map2"></div>
+             <div id="map"></div>
+            </div>
+
+            <div class=" buttons col-md-4 col-sm-4 col-xs-4"></div>
         </div>
     </div>
-    <!-- an empty div for the map -->
-    <!--         </div>
-    </div> -->
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDco8IK3wbL5bCxCxxnlP75AhZjMc4KTJQ&libraries=places&callback=initmap&initmap2"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDco8IK3wbL5bCxCxxnlP75AhZjMc4KTJQ&libraries=places&callback=initmap&initmap2"></script>
 </body>
 
 </html>

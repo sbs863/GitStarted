@@ -4,26 +4,33 @@
     justify-content: center;
 }
 
-
-}
 .shadow {
     box-shadow: 0 30px 38px rgba(0, 0, 0, 0.9);
 }
+
 html {
     min-height: 100%;
 }
+
 .navbar {
     margin: 0;
 }
+
 .navbar.transparent.navbar-inverse .navbar-inner {
     background: rgba(0, 0, 0, 0.4);
 }
+
+.panel-heading {
+    background-color: #515151;
+}
+
 .home {
     position: relative;
     padding-top: 200px;
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
 }
+
 #top {
     min-height: 100vh;
     background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Austin.jpg);
@@ -32,72 +39,93 @@ html {
     outline-color: #515151;
     background-size: 100%;
 }
+
 #page1 {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #f6f1ed;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(../images/bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
-.panel-heading {
-    background-color: #515151;
-}
+
 .times {
-    min-height: 60vh;
+    min-height: 45vh;
 }
+
+.round {
+    border-radius: 25px;
+}
+
+.morning {
+    background-image: url(../images/coffee.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0px;
+    border: none;
+}
+
 #page2 {
     min-height: 100vh;
-    background-color: #67BCDB;
+    background-image: url(../images/la.jpg);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
+    border-bottom-style: solid;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
+
 .buttonDiv {
     display: flex;
     justify-content: center;
     padding-left: 30%;
     padding-right: 30%;
 }
+
 .btn-danger {
     -webkit-box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);
     -moz-box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 1.0);
     border-radius: 0;
 }
+
 .map {
     margin-top: 5%;
     margin-left: 3%;
     max-height: 60%;
     max-width: 50%;
 }
+
 .allDay {
     padding-top: 10px;
     max-width: 40%;
 }
-.right {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    float: right;
-    padding-top: 5%;
-    padding-right: 22%;
-    height: 50%;
-    width: auto;
-}
-.here {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+
 #map {
     height: 0%;
-}
-#map2 {
-    height: 50%;
+    display: none;
+    width: 0%;
+    visibility: hidden;
 }
 
-#map_canvas {
-    height: 500px;
-    width: 500px;
-    overflow: visible;
+#map2 {
+    height: 60vh;
+    width: 50vw;
+    margin-left: 1%;
+    position: absolute;
 }
+
+.buttons {
+    margin-left: 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content { 
+margin-top:20vh;
+ }
