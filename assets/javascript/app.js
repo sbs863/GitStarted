@@ -72,7 +72,7 @@
   var outdoorsArray = [];
   var breakfastArray = [];
   /*geo-locate api - might change later*/
-  var queryURL = "http://ip-api.com/json";
+  var queryURL = "https://ip-api.com/json";
 
 
   /*geolocation*/
