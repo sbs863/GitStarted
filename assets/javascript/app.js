@@ -1,238 +1,587 @@
-  $("#menu-close").click(function(e) {
-      e.preventDefault();
-      $("#sidebar-wrapper").toggleClass("active");
-  });
-  // Opens the sidebar menu
-  $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#sidebar-wrapper").toggleClass("active");
-  });
-
-  $(function() {
-
-      $('a[href*="#"]:not([href="#"])').click(function() {
-
-          if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-              if (target.length) {
-                  $('html, body').animate({
-                      scrollTop: target.offset().top
-                  }, 1000, function() {
-
-                  });
-                  return false;
-              }
-          }
-
-      });
-  });
+$("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+// Opens the sidebar menu
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
 
 
-  var myArray = ['dog', 'cat', 'pet'];
-  console.log(myArray);
 
-  $(".times").click(function populateButtons(array) {
-      for (var i = 0; i < myArray.length; i++) {
-          var r = $('<input/>').attr({
-              type: "button",
-              class: "btn-lg btn-danger shadow",
-              autocomplete: "off",
-              id: myArray[i],
-              value: myArray[i]
-          });
-          r.attr('data-toggle', "button");
-          r.attr('aria-pressed', 'false');
-          $('.buttons').append(r);
-      }
-  });
+$(function() {
 
-  $('.beer').click(function() {
-      counter++;
-      console.log(counter);
+    $('a[href*="#"]:not([href="#"])').click(function() {
 
-  });
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function() {
 
-  // This example requires the Places library. Include the libraries=places
-  // parameter when you first load the API. For example:
-  // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+                });
+                return false;
+            }
+        }
 
-  /*arrays for functions to use*/
-  var map;
-  var map2;
-  var infowindow;
-  var startPoint = { lat: '', lng: '' };
-  var endPoint = "";
-  var waypts = [];
+    });
+    $(function() {
+        $(window).scroll(function() {
 
 
-  /*type arrays*/
-  var shoppingArray = [];
-  var treatArray = [];
-  var outdoorsArray = [];
-  var breakfastArray = [];
-  /*geo-locate api - might change later*/
-  var queryURL = "https://ip-api.com/json";
+            $('.fadeInBlock').each(function(i) {
+
+                var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
+                bottom_of_window = bottom_of_window + 600;
+
+                if (bottom_of_window > bottom_of_object) {
+
+                    $(this).animate({ 'opacity': '1' }, 2250);
+
+                }
+            });
+
+        });
+    });
+});
+
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 
-  /*geolocation*/
-  // $("#locate").on("click", function() {
-  function geoLocate() {
-      var options = {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
-      };
+var morningArray = ['shopping', 'relax', 'outdoors', 'breakfast'];
+var morningArrayCap = ['Shopping', 'Relax', 'Outdoors', 'Breakfast'];
+var afternoonArray = ['art', 'adventure', 'restaurant', 'movie'];
+var afternoonArrayCap = ['Art', 'Adventure', 'Restaurant', 'Movie'];
+var eveningArray = ['night'+'club', 'bar','movie', 'restaurant'];
+var eveningArrayCap = ['Night'+' Club', 'Bar', 'Movie', 'Restaurant'];
 
-      function success(pos) {
-          var crd = pos.coords;
-
-          console.log('Your current position is:');
-          console.log('Latitude : ' + crd.latitude);
-          console.log('Longitude: ' + crd.longitude);
-          console.log('More or less ' + crd.accuracy + ' meters.');
-      }
-
-      function error(err) {
-          console.warn('ERROR(' + err.code + '): ' + err.message);
-      }
-
-      navigator.geolocation.getCurrentPosition(success, error, options);
-
-      $.ajax({ 
-        url: queryURL,
-         method: 'GET',
-         async: false,
-          })
-          .done(function(response) {
-              startPoint.lat = parseFloat(response.lat);
-              startPoint.lng = parseFloat(response.lon);
-              console.log(response.lon);
-              console.log(response.lat);
-              console.log('a');
-          });
-
-  }
-
-  // });
-  console.log(startPoint);
-  /*places search */
-  function initmap() {
-      /*change to geolocate*/
-      var pyrmont = { lat: 30.2672, lng: -97.7431 };
-      /*possibly change to node instead of map*/
-      map = new google.maps.Map(document.getElementById('map'), {
-          center: pyrmont,
-          zoom: 15
-      });
-      infowindow = new google.maps.InfoWindow();
-
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
-          type: ['shopping_mall']
-      }, callback);
-
-      service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
-          type: ['shoe_store']
-      }, callback);
-      service.nearbySearch({
-          location: pyrmont,
-          radius: 500,
-          type: ['clothing_store']
-      }, callback);
-  }
-
-  function callback(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-              shoppingArray.push(results[i]);
-              // console.log(shoppingArray);
-          }
-
-          /*calls to other functions must be made in this space within callback*/
-          initMap2();
-
-      }
-  }
-
-  function callback2(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-              museumArray.push(results[i].vicinity);
-          }
-      }
-  }
-  /*directions functions*/
-  /*creates map*/
-  function initMap2() {
-
-      geoLocate();
-      console.log(startPoint.lng + ";alsjkfasd;kfjasd;flkj");
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      var map2 = new google.maps.Map(document.getElementById('map2'), {
-          zoom: 11,
-          center: new google.maps.LatLng(startPoint.lat,startPoint.lng)
-      });
-      directionsDisplay.setMap(map2);
-      document.getElementById('submit').addEventListener('click', function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
+/*arrays for functions to use*/
+var map;
+var map2;
+var infowindow;
+var startPoint = { lat: '', lng: '' };
+var endPoint = "";
+var waypts = [];
 
 
-      });
 
-      //parseInt(startPoint.lng);
-      // parseInt(startPoint.lat);
-      console.log("start point  " + startPoint);
-      console.log("start point.lat ass " + startPoint.lat);
-      console.log("start point.lng ass " + startPoint.lng);
-      // map2.setCenter(new google.maps.LatLng(startPoint.lat, startPoint.lng));
-      // map2.setCenter(startPoint);
+/*type arrays*/
+var shoppingArray = [];
+var relaxArray = [];
+var outdoorsArray = [];
+var breakfastArray = [];
 
-  }
+/*afternoon type arrays*/
+var artArray = [];
+var adventureArray = [];
+var restaurantArray = [];
+var movieArray = [];
 
-  /*makes route*/
-  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-      /*cleans up data to pass address*/
-      for (var i = 0; i < museumArray.length; i++) {
-          console.log(museumArray[i]);
-          var newWaypts = museumArray[i].replace(/ |,/g, '+');
-          waypts.push({
-              location: newWaypts,
-              stopover: true
-          });
-          endPoint = museumArray[museumArray.length - 1];
-      }
-      console.log(waypts);
-      /*change to geolocate*/
 
-      directionsService.route({
-          origin: startPoint,
-          destination: endPoint,
-          waypoints: waypts,
-          optimizeWaypoints: true,
-          travelMode: 'DRIVING'
-      }, function(response, status) {
-          if (status === 'OK') {
-              directionsDisplay.setDirections(response);
-              var route = response.routes[0];
-              var summaryPanel = document.getElementById('directions-panel');
-              summaryPanel.innerHTML = '';
-              // For each route, display summary information.
-              for (var i = 0; i < route.legs.length; i++) {
-                  var routeSegment = i + 1;
-                  summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                      '</b><br>';
-                  summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-                  summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-                  summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-              }
-          } else {
-              window.alert('Directions request failed due to ' + status);
-          }
-      });
-  }
+/*nigth arrays*/
+var nightClubArray = [];
+var barArray = [];
+
+
+/*mixed array of type arrays*/
+
+var mixedArray = [];
+
+/*button counters*/
+var buttonCounter = 0;
+var callbackCounter = 0;
+
+/*geo-locate api - might change later*/
+var queryURL = "http://ip-api.com/json";
+
+
+function geoLocate() {
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+    function success(pos) {
+        var crd = pos.coords;
+
+    }
+
+    function error(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+
+    $.ajax({
+            url: queryURL,
+            method: 'GET',
+            async: false,
+        })
+        .done(function(response) {
+            startPoint.lat = parseFloat(response.lat);
+            startPoint.lng = parseFloat(response.lon);
+        });
+}
+
+/*places search */
+function initmap() {
+    $('#time1').on('click', function() {
+        /*change to geolocate*/
+        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        /*possibly change to node instead of map*/
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+        infowindow = new google.maps.InfoWindow();
+
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['shopping_mall']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['shoe_store']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['clothing_store']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['hair_care'],
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['spa'],
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 50000,
+            type: ['park'],
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 50000,
+            type: ['zoo'],
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['cafe']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['bakery'],
+        }, callback);
+
+    });
+    /*new code*/
+    $('#time3').on('click', function() {
+        /*change to geolocate*/
+        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        /*possibly change to node instead of map*/
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+        infowindow = new google.maps.InfoWindow();
+
+
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['night_club']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['bar']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['movie_theater']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['restaurant']
+        }, callback);
+
+    });
+
+
+    /*afternoon activity creater*/
+    $('#time2').on('click', function() {
+        /*change to geolocate*/
+        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        /*possibly change to node instead of map*/
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['shopping_mall']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['shoe_store']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['clothing_store']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['hair_care']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['spa']
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 500,
+            type: ['hair_salon']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['park'],
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['amusement_park'],
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['zoo'],
+        }, callback);
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['aquarium']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['restaurant']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 5000,
+            type: ['movie_theater']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 50000,
+            type: ['art_gallery']
+        }, callback);
+
+        service.nearbySearch({
+            location: pyrmont,
+            radius: 50000,
+            type: ['museum']
+        }, callback);
+    });
+}
+
+function callback(results, status) {
+    callbackCounter++;
+    console.log(results);
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            /*puts types into their respetive arrays*/
+            if (results[i].types[0] === "shopping_mall" || results[i].types[0] === "shoe_store" || results[i].types[0] === "clothing_store") {
+                shoppingArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "hair_care" || results[i].types[0] === "spa" || results[i].types[0] === "hair_salon") {
+                relaxArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "movie_theater") {
+                movieArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "park" || results[i].types[0] === "amusement_park") {
+                outdoorsArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "cafe" || results[i].types[0] === "bakery") {
+                breakfastArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "art_gallery" || results[i].types[0] === "museum") {
+                artArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "zoo" || results[i].types[0] === "aquarium") {
+                adventureArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "restaurant") {
+                restaurantArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "night_club") {
+                nightClubArray.push(results[i].vicinity);
+            } else if (results[i].types[0] === "bar") {
+                barArray.push(results[i].vicinity);
+            }
+            console.log(results[i]);
+
+        }
+
+
+        /*calls to other functions must be made in this space within callback*/
+
+
+
+    }
+}
+/*button activities*/
+$("#time1").on('click', function populateButtons(array) {
+
+    initMap2();
+    for (var i = 0; i < morningArray.length; i++) {
+        var r = $('<input/>').attr({
+            type: "button",
+            class: "btn-lg btn-danger shadow",
+            autocomplete: "off",
+            id: morningArray[i],
+            value: morningArrayCap[i]
+        });
+
+
+        $('.buttons').append(r);
+    }
+    $("#shopping").on('click', function() {
+        mixedArray.push(shoppingArray[Math.floor(Math.random() * shoppingArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+    });
+
+    $("#outdoors").on('click', function() {
+        mixedArray.push(outdoorsArray[Math.floor(Math.random() * outdoorsArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#breakfast").on('click', function() {
+        mixedArray.push(breakfastArray[Math.floor(Math.random() * breakfastArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#relax").on('click', function() {
+        mixedArray.push(relaxArray[Math.floor(Math.random() * relaxArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+});
+
+$("#time2").on('click', function populateButtons(array) {
+
+    initMap2();
+    for (var i = 0; i < afternoonArray.length; i++) {
+        var r = $('<input/>').attr({
+            type: "button",
+            class: "btn-lg btn-danger shadow",
+            autocomplete: "off",
+            id: afternoonArray[i],
+            value: afternoonArrayCap[i]
+        });
+
+        $('.buttons').append(r);
+    }
+    $("#art").on('click', function() {
+        mixedArray.push(shoppingArray[Math.floor(Math.random() * shoppingArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+
+    $("#adventure").on('click', function() {
+        mixedArray.push(outdoorsArray[Math.floor(Math.random() * outdoorsArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#restaurant").on('click', function() {
+        mixedArray.push(breakfastArray[Math.floor(Math.random() * breakfastArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#movie").on('click', function() {
+        mixedArray.push(relaxArray[Math.floor(Math.random() * relaxArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#relax").on('click', function() {
+        mixedArray.push(relaxArray[Math.floor(Math.random() * relaxArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+
+});
+
+$("#time3").on('click', function populateButtons(array) {
+
+    initMap2();
+    for (var i = 0; i < eveningArray.length; i++) {
+        var r = $('<input/>').attr({
+            type: "button",
+            class: "btn-lg btn-danger shadow",
+            autocomplete: "off",
+            id: eveningArray[i],
+            value: eveningArrayCap[i]
+        });
+
+        $('.buttons').append(r);
+    }
+    $("#night"+"club").on('click', function() {
+        mixedArray.push(relaxArray[Math.floor(Math.random() * relaxArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+    $("#bar").on('click', function() {
+        mixedArray.push(relaxArray[Math.floor(Math.random() * relaxArray.length)]);
+        buttonCounter++;
+        if (buttonCounter > 8) {
+            alert("too many buttons!!");
+        }
+
+
+    });
+});
+
+
+
+
+/*directions functions*/
+/*creates map*/
+
+
+function initMap2() {
+
+    geoLocate();
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var map2 = new google.maps.Map(document.getElementById('map2'), {
+        zoom: 11,
+        center: new google.maps.LatLng(startPoint.lat, startPoint.lng)
+    });
+    directionsDisplay.setMap(map2);
+    document.getElementById('submit').addEventListener('click', function() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+
+    });
+
+}
+
+/*makes route*/
+
+
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    /*cleans up data to pass address*/
+    for (var i = 0; i < mixedArray.length; i++) {
+        console.log(mixedArray);
+
+        var newWaypts = mixedArray[i].replace(/ |,|#/g, '+');
+        waypts.push({
+            location: newWaypts,
+            stopover: true
+        });
+        endPoint = mixedArray[mixedArray.length - 1];
+     
+    }
+    // console.log('https://www.google.com/maps/dir/' + newArr);
+
+
+    /*change to geolocate*/
+
+    directionsService.route({
+        origin: startPoint,
+        destination: endPoint,
+        waypoints: waypts,
+        optimizeWaypoints: true,
+        travelMode: 'DRIVING'
+    }, function(response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            // summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+                var routeSegment = i + 1;
+                summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                    '</b><br>';
+                summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+                summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+                summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}

@@ -2,7 +2,7 @@
 <html class="full" lang="en">
 
 <head>
-    <title>Git Started</title>
+    <title>Itinerant</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -15,8 +15,8 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar">
-    <div class="navbar transparent navbar-inverse navbar-fixed-top">
-        <nav class="navbar-inner container-fluid ">
+    <div class="navbar transparent navbar-inverse navbar-fixed-top ">
+        <nav class="navbar-inner container-fluid font ">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class=" navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand " href="#page1">Git Started</a>
+                <a class="navbar-brand " href="#page1">Itenerant</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,14 +45,14 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12" id="top">
-            <div class="home overlay">
+            <div class="font home overlay">
                 <div class="row">
                     <div class=" container-fluid col-md-5">
-                        <h1 class="title">Write the best title for your page.</h1>
-                        <h4>Every landing page needs a small description after the big bold title, that's why we added this text here. Add here all the information that can make you or your product create the first impression.</h4>
+                        <h1 class="underline"> Itinerant</h1>
+                        <h4>Whether you have a couple hours or an entire day, take the indecision out of your life and start living it again with Itenerant.</h4>
                         <br>
-                        <a href="#page1" class="btn btn-danger btn-raised btn-lg">
-                         Git Started
+                        <a href="#page1" class="btn btn-danger btn-raised btn-lg ">
+                         Start Now!
                     </a>
                     </div>
                 </div>
@@ -62,54 +62,55 @@
             <div class="buttonDiv"> </div>
         </div>
     </div>
-    <div class="row" id="page1">
+    <div class="row fadeInBlock" id="page1">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="col-md-12 col-sm-12 col-xs-12 ">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 col-xs-4  ">
-                        <!-- <div class="col-md-12 col-sm-12 col-xs-12  "> -->
-                            <div class="  panel panel-default morning shadow round ">
-                                <a href="#page2 " class="panel-body times center"></a>
-                            </div>
-                        <!-- </div> -->
+                <div class="row center">
+                    <div class="col-md-3 col-sm-3 col-xs-3  ">
+                        <div class="round ">
+                            <h2 class="insetshadow">Morning</h2>
+                        </div>
+                        <div class="  panel panel-default morning shadow round ">
+                            <a href="#page2 " id="time1" class="panel-body times center"></a>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 ">
-                        <!-- <div class="col-md-12 col-sm-12 col-xs-12"> -->
-                            <div class="  panel panel-default afternoon shadow round">
-                                <a href="#page2" class="panel-body times center"></a>
-
-                            </div>
-                        <!-- </div> -->
+                    <div class="col-md-3 col-sm-3 col-xs-3 centerText">
+                        <div class="insetshadow ">
+                            <h2>Afternoon</h2>
+                        </div>
+                        <div class="  panel panel-default afternoon shadow round">
+                            <a href="#page2" id="time2" class="panel-body times center"></a>
+                        </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 ">
-                        <!-- <div class="col-md-12 col-sm-12 col-xs-12  "> -->
-                            <div class="  panel panel-default night shadow round ">
-                                <a href="#page2" class="panel-body times center"></a>
-                            </div>
-                        <!-- </div> -->
+                    <div class="col-md-3 col-sm-3 col-xs-3 ">
+                        <div class="insetshadow ">
+                            <h2>Evening</h2>
+                        </div>
+                        <div class="  panel panel-default night shadow round ">
+                            <a href="#page2" id="time3" class="panel-body times center"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="row center">
-                    <div class="col-md-12 col-sm-12 col-xs-12 allDay ">
-                        <div class="panel panel-default ">
-                            <a href="#page2" class="panel-body center"></a>
+                <div class="row center space">
+                    <div class="col-md-5 col-sm-5 col-xs-5 ">
+                        <div class="  panel panel-default insetshadow round shadow  "> 
+                            <a href="#page2" class=" panel-body times2 center "><h2 class="insetshadow" >Plan your entire day!</h2></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" id="page2">
+    <div class="row fadeInBlock" id="page2">
         <div class="col-md-12 col-sm-12 col-xs-12 content">
-            <div class=" col-md-12 col-sm-12 col-xs-12">
-                <button type="button" id="locate" class="btn btn-success">where am I?</button>
-                <input type="submit" id="submit">
+            <div class=" col-md-12 col-sm-12 col-xs-12 row2">
+                <input type="submit" id="submit" class="btn btn-danger btn-raised btn-lg ">
             </div>
             <div class=" col-md-7 col-sm-7 col-xs-7 shadow">
-            <div  class="shadow" id="map2"></div>
-             <div id="map"></div>
+                <div class="shadow" id="map2"></div>
+                <div id="map"></div>
+      
             </div>
-
             <div class=" buttons col-md-4 col-sm-4 col-xs-4"></div>
         </div>
     </div>

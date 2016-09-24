@@ -1,7 +1,11 @@
+
 .center {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-style:
 }
 
 .shadow {
@@ -10,13 +14,12 @@
 
 html {
     min-height: 100%;
-        max-width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
-
 }
 
 body {
-        max-width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
@@ -32,10 +35,21 @@ body {
     background-color: #515151;
 }
 
+/*.font {
+    font-family: 'Roboto', sans-serif;
+    color:#6eb38c;
+}*/
+
+.underline {
+    text-decoration: underline;
+ 
+}
+
+
 .home {
     position: relative;
-    padding-top: 200px;
-    font-family: 'Roboto', sans-serif;
+    padding-top: 19%;
+    padding-left: 5%;
     color: #ffffff;
 }
 
@@ -45,7 +59,7 @@ body {
     background-repeat: no-repeat;
     outline-style: solid;
     outline-color: #515151;
-   background-size: cover;
+    background-size: cover;
 }
 
 #page1 {
@@ -60,15 +74,67 @@ body {
 
 .times {
     min-height: 45vh;
-  
+
 }
+.times2 {
+    min-height: 10vh;
+ 
+}
+.space {
+    padding-top:4vh;
+
+}
+
+
+.allDay {
+
+
+opacity:0;
+}
+
 
 .round {
     border-radius: 25px;
 }
 
+
+/*.fadeInBlock {
+    opacity: 0;
+    -webkit-transform: translatez(0);
+    -moz-transform: translatez(0);
+    -ms-transform: translatez(0);
+    -o-transform: translatez(0);
+    transform: translatez(0);
+}*/
+
+.fadeInBlock2 {
+    opacity: 0;
+}
+
 .morning {
     background-image: url(../images/coffee.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0px;
+    border: none;
+}
+
+.afternoon {
+    background-image: url(../images/tourist.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0px;
+    border: none;
+}
+
+.night {
+    background-image: url(../images/concert.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,7 +153,6 @@ body {
     border-bottom-style: solid;
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 
 .buttonDiv {
@@ -111,10 +176,7 @@ body {
     max-width: 50%;
 }
 
-.allDay {
-    padding-top: 10px;
-    max-width: 40%;
-}
+
 
 #map {
     height: 0%;
@@ -136,6 +198,39 @@ body {
     justify-content: space-between;
 }
 
-.content { 
-margin-top:20vh;
- }
+.content {
+    margin-top: 20vh;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 3vw;
+  /*padding: 80px 50px;*/
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  text-decoration:none;
+}
+
+ .insetshadow {
+    color: #d9534f;
+    background-color: #2d2d2d;
+    letter-spacing: .1em;
+    text-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
+  }
+
+.panel a {
+
+  text-decoration: none; /* no underline */
+
+}
+
+.row2 {
+    padding-top: 1%;
+    padding-left:46.2%;
+ padding-bottom: 1%
+}
+
+
