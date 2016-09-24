@@ -136,13 +136,14 @@ function geoLocate() {
 function initmap() {
     $('#time1').on('click', function() {
         /*change to geolocate*/
-        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        var pyrmont = startPoint;
         /*possibly change to node instead of map*/
         map = new google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
             zoom: 15
         });
-        infowindow = new google.maps.InfoWindow();
+        infowindow = new google.maps.InfoWindow();  
+
 
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
@@ -195,16 +196,18 @@ function initmap() {
         }, callback);
 
     });
+
     /*new code*/
     $('#time3').on('click', function() {
         /*change to geolocate*/
-        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        var pyrmont = startPoint;
         /*possibly change to node instead of map*/
         map = new google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
             zoom: 15
         });
         infowindow = new google.maps.InfoWindow();
+        
 
 
         var service = new google.maps.places.PlacesService(map);
@@ -236,7 +239,7 @@ function initmap() {
     /*afternoon activity creater*/
     $('#time2').on('click', function() {
         /*change to geolocate*/
-        var pyrmont = { lat: 30.2672, lng: -97.7431 };
+        var pyrmont = startPoint;
         /*possibly change to node instead of map*/
         map = new google.maps.Map(document.getElementById('map'), {
             center: pyrmont,
@@ -570,7 +573,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             directionsDisplay.setDirections(response);
             var route = response.routes[0];
             var summaryPanel = document.getElementById('directions-panel');
-            // summaryPanel.innerHTML = '';
+            summaryPanel.innerHTML = '';
             // For each route, display summary information.
             for (var i = 0; i < route.legs.length; i++) {
                 var routeSegment = i + 1;
